@@ -1,12 +1,13 @@
 #!/usr/bin/python
 import requests, json, time, random
 def like(idlike, token):
-    reaction_list =  ['LIKE', 'LOVE', 'WOW', 'HAHA', 'SAD', 'ANGRY']
+    reaction_list =  ['LIKE']
     # ['LIKE', 'LOVE', 'WOW', 'HAHA', 'SAD', 'ANGRY']
     reaction = random.choice(reaction_list)
     payload = {'type':reaction, 'method': 'POST' ,'access_token':token}
     a = requests.post('https://graph.facebook.com/v2.8/'+idlike+'/reactions', params=payload)
     print reaction, idlike
+# add your token 
 token = ''
 
 #364997627165697 J2team
