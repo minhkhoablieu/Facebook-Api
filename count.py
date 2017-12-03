@@ -1,20 +1,6 @@
 import requests,time
-def gettoken():
-    username = raw_input('nhap username fb: ')
-    password = raw_input('nhap password fb: ')
-    payload = {'u': username, 'p': password}
-    get_token = requests.get('http://gymtranhuynh-winazure.rhcloud.com/token.php', params=payload).json()
-    token = get_token['access_token']
-    return token
-
-
-question = raw_input('Ban da co token full quyen chua (Y or N) ')
-
-if question.upper() == 'Y':
-    token = raw_input('nhap token: ')
-if question.upper() == 'N':
-    token = gettoken()
-    print token
+#add your toke here 
+token = ''
 
 payload = {'method': 'GET','fields': 'message_count,senders,thread_key', 'access_token':token}
 t = requests.get('https://graph.facebook.com/v2.10/me/conversations', params=payload).json()
