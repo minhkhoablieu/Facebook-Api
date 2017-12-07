@@ -35,14 +35,6 @@ while True:
     for i in t['data']:
         if i['id'] == id:   break
         if i['id'][:15] not in next_id:
-            payload = {'fields':'gender','method': 'POST' ,'access_token':token}
-            a = requests.post('https://graph.facebook.com/v2.8/'+i['id'][:15], params=payload).json()
-            try:
-                if a['gender'] == 'famele':
-                    next
-                else:
-                    like(i['id'], token)
-            except KeyError:            
-                like(i['id'], token)
+            like(i['id'], token)
     time.sleep(10)
     id = t['data'][0]['id']
