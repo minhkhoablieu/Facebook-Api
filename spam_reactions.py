@@ -1,22 +1,10 @@
 #!/usr/bin/python
 import requests, json, time, random
 
-def gettoken():
-    username = raw_input('nhap username fb: ')
-    password = raw_input('nhap password fb: ')
-    payload = {'u': username, 'p': password}
-    get_token = requests.get('http://gymtranhuynh-winazure.rhcloud.com/token.php', params=payload).json()
-    token = get_token['access_token']
-    return token;
-
 question = raw_input('Ban da co token full quyen chua (Y or N) ')
 
 if question.upper() == 'Y':
     token = raw_input('nhap token: ')
-    
-else:
-    token = gettoken()
-    print token
 
 idfb = raw_input('Id fb nguoi ban muon bao:=> ' )
 payload = {'method': 'get', 'access_token':token}
